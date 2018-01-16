@@ -1,0 +1,9 @@
+/Users/andrewcastillo/Desktop/College/2017-2018/Spring 2018/COP4555/LearningFsharp/bin/Debug/netcoreapp2.0/LearningFsharp.deps.json
+/Users/andrewcastillo/Desktop/College/2017-2018/Spring 2018/COP4555/LearningFsharp/bin/Debug/netcoreapp2.0/LearningFsharp.runtimeconfig.json
+/Users/andrewcastillo/Desktop/College/2017-2018/Spring 2018/COP4555/LearningFsharp/bin/Debug/netcoreapp2.0/LearningFsharp.runtimeconfig.dev.json
+/Users/andrewcastillo/Desktop/College/2017-2018/Spring 2018/COP4555/LearningFsharp/bin/Debug/netcoreapp2.0/LearningFsharp.dll
+/Users/andrewcastillo/Desktop/College/2017-2018/Spring 2018/COP4555/LearningFsharp/bin/Debug/netcoreapp2.0/LearningFsharp.pdb
+/Users/andrewcastillo/Desktop/College/2017-2018/Spring 2018/COP4555/LearningFsharp/obj/Debug/netcoreapp2.0/LearningFsharp.fsprojResolveAssemblyReference.cache
+/Users/andrewcastillo/Desktop/College/2017-2018/Spring 2018/COP4555/LearningFsharp/obj/Debug/netcoreapp2.0/LearningFsharp.fsproj.CoreCompileInputs.cache
+/Users/andrewcastillo/Desktop/College/2017-2018/Spring 2018/COP4555/LearningFsharp/obj/Debug/netcoreapp2.0/LearningFsharp.dll
+/Users/andrewcastillo/Desktop/College/2017-2018/Spring 2018/COP4555/LearningFsharp/obj/Debug/netcoreapp2.0/LearningFsharp.pdb
