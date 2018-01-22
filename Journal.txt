@@ -1,3 +1,5 @@
+1/17 "Hello World" Application
+
 1/17 at 1.22.38PM User input, read in user's "name"
 
 1/17 at 1.37.09PM Float Manipulation, manipulating digits, big decimal values
