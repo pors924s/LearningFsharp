@@ -1,0 +1,15 @@
+1/17 at 1.22.38PM User input, read in user's "name"
+
+1/17 at 1.37.09PM Float Manipulation, manipulating digits, big decimal values
+
+1/17 at 1.44.31PM Padding, manipulated spacing between strings
+
+1/17 at 1.49.48PM Mutable values, mutable integer values
+
+1/17 at 1.59.39PM Simple function, created 2 integer parameters and added them together
+
+1/17 at 2.43.27PM Recursive Function, used recursion with a factorial of a parameter
+
+1/18 at 7.10.03PM First list manipulations into the second one, Pipelining list takes even numbers then doubles them, functions within functions
+
+  
