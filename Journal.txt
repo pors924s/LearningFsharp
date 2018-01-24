@@ -14,4 +14,4 @@
 
 1/18 at 7.10.03PM First list manipulations into the second one, Pipelining list takes even numbers then doubles them, functions within functions
 
-  
+1/24 at 12.19.40PM Manipulations using strings, converting numbers to strings, string length, boolean checks with string etc. 
