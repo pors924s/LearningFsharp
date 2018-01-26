@@ -15,3 +15,9 @@
 1/18 at 7.10.03PM First list manipulations into the second one, Pipelining list takes even numbers then doubles them, functions within functions
 
 1/24 at 12.19.40PM Manipulations using strings, converting numbers to strings, string length, boolean checks with string etc. 
+
+1/26 at 9.28.47AM Simple while loop with user input to guess the "magic" number
+
+1/26 at 9.37.40AM A bunch of different ways for using for loops, including list iteration
+
+1/26 at 9.52.34AM Conditional with the "match" tool to determine secondary school grade depending on age
