@@ -21,3 +21,25 @@
 1/26 at 9.37.40AM A bunch of different ways for using for loops, including list iteration
 
 1/26 at 9.52.34AM Conditional with the "match" tool to determine secondary school grade depending on age
+
+1/26 at 10.18.51AM Many different ways to create new lists using cons, list iteration etc.
+
+1/26 at 10.26.18AM Creating lists through for loops, yields and yield!
+
+1/29 at 3.06.48PM Options, for when a function may not return a value
+
+1/29 at 3.17.47PM Tuples, simple tuple, conducted average
+
+1/29 at 3.25.14PM Records, like database entries
+
+1/29 at 4.11.47PM Maps, mapping data finding keys removing items etc.
+
+2/5 at 2.36.02PM First use of F# interactive, practiced function assignment
+
+2/5 at 3.36.06PM Worked on a swap function using tuples and elements of different types
+
+2/5 at 3.45.41PM Differ function to check if hte bool expressions were different, I tried an expresiion within and it actually returned a bool but not sure how it works
+
+2/5 at 3.48.55PM Cadd and csub functions playing around with the function that takes in two elements but only giving it one, put a function that takes two elements within a function that takes two elements but only provided one, did not work
+
+2/6-2/7 Went crazy in F# interactive trying some of the examples from the moodle sources and playing around to see what kind of functions I could make, including List.map, had a lot of struggling with recursion, I was able to recreate one from the moodle resource but could not make it into my own 
