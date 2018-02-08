@@ -1,0 +1,583 @@
+List.map (fun xs -> 5::xs) [[1;2],[3]];;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This expression was expected to have type
+     'int list'    
+ but here has type
+     ''a * 'b'     at 2,28
+
+List.map (fun xs -> 5::xs) [[1;2];[3]];;
+ val it : int list list = [[5; 1; 2]; [5; 3]]
+
+y = 3;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The value or constructor 'y' is not defined. at 3,0
+
+int y = 3;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The value or constructor 'y' is not defined. at 3,4
+
+let y = 3;;
+ val y : int = 3
+
+List.map (fun xs -> y::xs) [[1;2];[2;4]]
+List.map (fun xs -> y::xs) [[1;2];[2;4]];;
+ val it : int list list = [[3; 1; 2]; [3; 2; 4]]
+
+List.map (fun xs -> y::xs z) [[1;2];[2;4]];;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The value or constructor 'z' is not defined. Maybe you want one of the following:
+    y at 3,26
+ This expression was expected to have type
+     'obj -> int list'    
+ but here has type
+     ''a list'     at 3,30
+ All elements of a list constructor expression must have the same type. This expression was expected to have type 'obj -> int list', but here has type ''a list'. at 3,36
+
+List.map (fun n -> (5,n)) [true;false];;
+ val it : (int * bool) list = [(5, true); (5, false)]
+
+List.map ((*) 7) [1..5];;
+ val it : int list = [7; 14; 21; 28; 35]
+
+List.map  (fun (x,xs) -> x::xs) [(3,[4;5];(2,[1])];;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Unexpected symbol ']' in expression at 3,49
+
+List.map  (fun (x,xs) -> x::xs) [(3,[4;5]);(2,[1])];;
+ val it : int list list = [[3; 4; 5]; [2; 1]]
+let cadd a b = a+b;;
+
+let cadd a b = a+b;;
+ val cadd : a:int -> b:int -> int
+
+cadd 5
+;;
+ val it : (int -> int) = <fun:it@3-5>
+
+it 6
+;;
+ val it : int = 11
+
+let caff a = (fun b -> a+b);;
+ val caff : a:int -> b:int -> int
+
+caff 5;;
+ val it : (int -> int) = <fun:it@3-6>
+
+it 6;;
+ val it : int = 11
+
+List.head [1;2;3]
+;;
+ val it : int = 1
+
+List.map x::xs [1;[2;3]]
+;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The value or constructor 'x' is not defined. Maybe you want one of the following:
+    y at 3,9
+ The value or constructor 'xs' is not defined. Maybe you want one of the following:
+    MS at 3,12
+
+List.map (fun n ->n*n) [1;2;3;4]
+;;
+ val it : int list = [1; 4; 9; 16]
+
+List.map (fun x y -> x*y) [1;2;3;4]
+;;
+ val it : (int -> int) list =
+   [<fun:Invoke@3253>; <fun:Invoke@3253>; <fun:Invoke@3253>; <fun:Invoke@3253>]
+
+it 3;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. at 3,0
+
+List.map (fun x y -> x*y) [1;2;3;4] [1;2;3;4]
+;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. at 3,0
+
+List.map (fun x y -> x*y) [1;2;3;4] 2
+;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. at 3,0
+
+let test = List.map (fun x y -> x*y)
+;;
+ val test : (int list -> (int -> int) list)
+
+test [2;3;4] 3
+;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. at 3,0
+
+test [2;3;4] [2;3]
+;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. at 3,0
+
+test [2;3;4]
+;;
+ val it : (int -> int) list =
+   [<fun:Invoke@3253>; <fun:Invoke@3253>; <fun:Invoke@3253>]
+
+it [4]
+;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. Did you intend to access the indexer via it.[index] instead? at 3,0
+
+it 4;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. at 3,0
+
+it [2;3;4];;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. Did you intend to access the indexer via it.[index] instead? at 3,0
+
+let test1 x = List.map (fun y -> x*y);;
+ val test1 : x:int -> (int list -> int list)
+
+let cadd a = (fun b-> a+b);;
+ val cadd : a:int -> b:int -> int
+
+test1 5 ([1;2;3])
+;;
+ val it : int list = [5; 10; 15]
+
+test;;
+ val it : (int list -> (int -> int) list) = <fun:test@3-1>
+
+test [1;2;3] (3);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. at 3,0
+
+test ([1;2;3] (3));;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. at 3,6
+
+fun r -> r+1;;
+ val it : r:int -> int
+
+fun r x -> r+x;;
+ val it : r:int -> x:int -> int
+
+let test2 = (fun t y -> t+y);;
+ val test2 : t:int -> y:int -> int
+
+test2 3;;
+ val it : (int -> int) = <fun:it@3-9>
+
+it 1;;
+ val it : int = 4
+
+test2 3 1;;
+ val it : int = 4
+
+let test3 t -> (fun y -> t+y);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Unexpected symbol '->' in binding. Expected '=' or other token. at 3,12
+
+let test3 t = (fun y -> t+y);;
+ val test3 : t:int -> y:int -> int
+
+test;;
+ val it : (int list -> (int -> int) list) = <fun:test@3-1>
+
+test [1;2;3];;
+ val it : (int -> int) list =
+   [<fun:Invoke@3253>; <fun:Invoke@3253>; <fun:Invoke@3253>]
+
+it [1];;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. Did you intend to access the indexer via it.[index] instead? at 3,0
+
+it 1;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. at 3,0
+
+it (1);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. at 3,0
+
+it ([1;2]);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. at 3,0
+
+test ([1;2;3] (3));;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. at 3,6
+
+test [1;2;3];;
+ val it : (int -> int) list =
+   [<fun:Invoke@3253>; <fun:Invoke@3253>; <fun:Invoke@3253>]
+
+it 5 [2];;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. at 3,0
+
+it 5;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. at 3,0
+
+it 5 = 2*5;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. at 3,0
+
+let it x = (fun y -> x+y);;
+ val it : x:int -> y:int -> int
+
+it 5 5;;
+ val it : int = 10
+
+test;;
+ val it : (int list -> (int -> int) list) = <fun:test@3-1>
+
+test [1;1;1];;
+ val it : (int -> int) list =
+   [<fun:Invoke@3253>; <fun:Invoke@3253>; <fun:Invoke@3253>]
+
+let test x = (fun y -> x+y);
+;
+let test x = (fun y -> x+y);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Duplicate definition of value 'test' at 7,4
+
+test;;
+ val it : (int list -> (int -> int) list) = <fun:test@3-1>
+
+;;
+
+let test4 = List.map (fun x -> x::xs);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The value or constructor 'xs' is not defined. Maybe you want one of the following:
+    x
+    MS at 5,34
+
+let test4 x = List.map (fun xs -> x::xs);;
+ val test4 : x:'a -> ('a list list -> 'a list list)
+
+test4 5 [[1;2];[3;4]];;
+ val it : int list list = [[5; 1; 2]; [5; 3; 4]]
+
+let rec hello = function
+| 0 -> 0
+| 4 -> n*hello;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The value or constructor 'n' is not defined. Maybe you want one of the following:
+    y at 7,7
+ Incomplete pattern matches on this expression. For example, the value '1' may indicate a case not covered by the pattern(s). at 3,16
+
+let rec hello = function
+|0 -> 0
+| 4 -> 4*hello;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The type 'int -> int' does not match the type 'int' at 7,9
+ Incomplete pattern matches on this expression. For example, the value '1' may indicate a case not covered by the pattern(s). at 3,16
+
+let rec test5 = function
+| 0 -> 0;
+| n -> test5(n-1);;
+ val test5 : _arg1:int -> int
+
+test5 5;;
+ val it : int = 0
+
+let rec test5 = function
+| 0 -> 0
+| n -> n test5(n-1);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Successive arguments should be separated by spaces or tupled, and arguments involving function or method applications should be parenthesized at 7,9
+ This value is not a function and cannot be applied. at 7,7
+
+let rec test5 = function
+|0 -> []
+|n::ns -> nan::test5(n-1);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This expression was expected to have type
+     'int'    
+ but here has type
+     ''a list'     at 7,1
+
+let rec test5 = function
+|0 -> []
+|n -> n::test5(n-1);;
+ val test5 : _arg1:int -> int list
+
+test5 5;;
+ val it : int list = [5; 4; 3; 2; 1]
+
+let rec test6 = function
+|0 -> false
+|n -> test6(n-1);;
+ val test6 : _arg1:int -> bool
+
+test6 2
+;;
+ val it : bool = false
+
+let rec test6 = function
+|0 -> printf "done"
+|n -> if n%2=0 then printf "EVEN!" else "ODD" test6(n-1);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Successive arguments should be separated by spaces or tupled, and arguments involving function or method applications should be parenthesized at 7,46
+ This value is not a function and cannot be applied. at 7,40
+
+let rec test6 = function
+|0 -> printf "done"
+|n -> if n%2=0 then printf "EVEN!" else printf "ODD" test6(n-1);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Successive arguments should be separated by spaces or tupled, and arguments involving function or method applications should be parenthesized at 7,53
+ This expression was expected to have type
+     'unit -> unit'    
+ but here has type
+     'unit'     at 7,47
+
+let rec test6 = function
+|0 -> printf "done"
+;;
+ val test6 : _arg1:int -> unit
+ Incomplete pattern matches on this expression. For example, the value '1' may indicate a case not covered by the pattern(s). at 3,16
+
+test6;;
+ val it : (int -> unit) = <fun:it@3-10>
+
+test6 1;;
+ Microsoft.FSharp.Core.MatchFailureException: The match cases were incomplete
+   at FSI_0078.test6 (System.Int32 _arg1) [0x00021] in <1984f79a4f2846068e7c523df04756a9>:0 
+   at <StartupCode$FSI_0080>.$FSI_0080.main@ () [0x00001] in <1984f79a4f2846068e7c523df04756a9>:0 
+   at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (System.Reflection.MonoMethod,object,object[],System.Exception&)
+   at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00032] in <4fdc5ed61a074cafb49fa42deb20d521>:0 
+
+test6 1;;
+ Microsoft.FSharp.Core.MatchFailureException: The match cases were incomplete
+   at FSI_0078.test6 (System.Int32 _arg1) [0x00021] in <1984f79a4f2846068e7c523df04756a9>:0 
+   at <StartupCode$FSI_0081>.$FSI_0081.main@ () [0x00001] in <1984f79a4f2846068e7c523df04756a9>:0 
+   at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (System.Reflection.MonoMethod,object,object[],System.Exception&)
+   at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00032] in <4fdc5ed61a074cafb49fa42deb20d521>:0 
+
+test6 0;;
+ doneval it : unit = ()
+
+let rec test7 = function
+|0 -> 0
+;;
+ val test7 : _arg1:int -> int
+ Incomplete pattern matches on this expression. For example, the value '1' may indicate a case not covered by the pattern(s). at 3,16
+
+let rec test7 = function
+|0 -> n
+|n -> n+test7(n-1);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The value or constructor 'n' is not defined. Maybe you want one of the following:
+    y at 5,6
+
+let test8 = (fun x ->x+test8(x-1);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Unmatched '(' at 3,12
+
+let test8 = (fun x ->x+test8(x-1));;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The value or constructor 'test8' is not defined. Maybe you want one of the following:
+    test
+    test1
+    test2
+    test3
+    test4 at 3,23
+
+let test8 5= (fun x ->x+test8(x-1);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Unmatched '(' at 3,13
+
+let test8 5= (fun x ->x+test8(x-1));;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The value or constructor 'test8' is not defined. Maybe you want one of the following:
+    test
+    test1
+    test2
+    test3
+    test4 at 3,24
+ Incomplete pattern matches on this expression. For example, the value '0' may indicate a case not covered by the pattern(s). at 3,10
+
+let test9 = (fun x y -> x+y);;
+ val test9 : x:int -> y:int -> int
+
+test9 5 5;;
+ val it : int = 10
+
+let test8 5= (fun x ->x+test9(x-1));;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Incomplete pattern matches on this expression. For example, the value '0' may indicate a case not covered by the pattern(s). at 3,10
+ The type 'int -> int' does not match the type 'int' at 3,31
+
+let test7 = function
+| rec;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Unexpected keyword 'rec' in binding at 5,2
+ Incomplete pattern matches on this expression. at 3,12
+
+let rec test7 = function
+|10 -> printf"got it"
+|x -> x+2;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The type 'unit' does not match the type 'int' at 7,8
+
+|x -> test7+2;;
+ Unexpected symbol '|' in interaction at 3,0
+ parse error at 3,0
+
+let rec test7 = function
+|10 -> printf"got it"
+|x -> test7+2;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The type 'int' does not match the type 'int -> unit' at 7,12
+
+let rec test10 = function
+|0 -> []
+|x%2=0 -> x::test10(x-1);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Unexpected symbol '{0} in pattern at 7,2
+ Incomplete pattern matches on this expression. For example, the value '1' may indicate a case not covered by the pattern(s). at 3,17
+
+let rec test10 = function
+|0 -> []
+|x%2=1 -> x-1;
+let rec test10 = function
+|0 -> []
+|x%2=1 -> x-1;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Unexpected symbol '{0} in pattern at 7,2
+ Unexpected symbol '{0} in pattern at 13,2
+ Incomplete pattern matches on this expression. For example, the value '1' may indicate a case not covered by the pattern(s). at 3,17
+ Incomplete pattern matches on this expression. For example, the value '1' may indicate a case not covered by the pattern(s). at 9,17
+
+let rec test10 = function
+|0 -> []
+|x%2=1 -> x-1
+|x%2=0 ->x::test10(x-1);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Unexpected symbol '{0} in pattern at 7,2
+ Incomplete pattern matches on this expression. For example, the value '1' may indicate a case not covered by the pattern(s). at 3,17
+
+let rec test10 = function
+|0 -> []
+|x -> x::test10(x-1);;
+ val test10 : _arg1:int -> int list
+
+test10 5
+;;
+ val it : int list = [5; 4; 3; 2; 1]
+
+let rec test10 = function
+|0 -> []
+|x%2=1 -> x-1
+|x%2=0 ->x::test10(x-1);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Unexpected symbol '{0} in pattern at 7,2
+ Incomplete pattern matches on this expression. For example, the value '1' may indicate a case not covered by the pattern(s). at 3,17
+
+let rec test10 = function
+|0 -> []
+|x%2=1 -> test10(x-1)
+|x%2=0 ->x::test10(x-1);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Unexpected symbol '{0} in pattern at 7,2
+ Incomplete pattern matches on this expression. For example, the value '1' may indicate a case not covered by the pattern(s). at 3,17
+
+let rec test10 = function
+|0 -> []
+|x%2==1 -> test10(x-1)
+|x%2==0 ->x::test10(x-1);;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Unexpected symbol '{0} in pattern at 7,2
+ Incomplete pattern matches on this expression. For example, the value '1' may indicate a case not covered by the pattern(s). at 3,17
+
+test3;;
+ val it : (int -> int -> int) = <fun:it@3-11>
+
+test2;;
+ val it : (int -> int -> int) = <fun:it@3-12>
+
+test1;;
+ val it : (int -> int list -> int list) = <fun:it@3-13>
+
+test1 [1;2;3] 3;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This expression was expected to have type
+     'int'    
+ but here has type
+     ''a list'     at 3,6
+ This expression was expected to have type
+     'int list'    
+ but here has type
+     'int'     at 3,14
+
+test1;;
+ val it : (int -> int list -> int list) = <fun:it@3-14>
+
+test1 5;;
+ val it : (int list -> int list) = <fun:test1@3-1>
+
+it [2;3;4];;
+ val it : int list = [10; 15; 20]
+
+let test10 x = List.map (fun y -> x*y);;
+ val test10 : x:int -> (int list -> int list)
+
+test10 5;;
+ val it : (int list -> int list) = <fun:test10@3-1>
+
+it [2;3;4];;
+ val it : int list = [10; 15; 20]
+
+test10 5 [2;3;4];;
+ val it : int list = [10; 15; 20]
+
