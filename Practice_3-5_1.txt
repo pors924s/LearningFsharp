@@ -1,0 +1,38 @@
+let uncurry (x,y) = x y;;
+
+ val uncurry : x:('a -> 'b) * y:'a -> 'b
+
+let uncurry (x,y) = int x y;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This value is not a function and cannot be applied. at 5,20
+
+let uncurry (x,y) = ();;
+ val uncurry : x:'a * y:'b -> unit
+
+let uncurry (x,y) = (int,int);;
+ val uncurry : x:'a * y:'b -> (int -> int) * (int -> int)
+
+let uncurry (x,y) = int int;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ Expecting a type supporting the operator 'op_Explicit' but given a function type. You may be missing an argument to a function. at 3,24
+
+let uncurry (int x,int y) = ();;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The pattern discriminator 'int' is not defined. at 3,13
+
+let uncurry (x,y) = ();;
+ val uncurry : x:'a * y:'b -> unit
+
+uncurry 3
+;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This expression was expected to have type
+     'obj * obj'    
+ but here has type
+     'int'     at 3,8
+
+
