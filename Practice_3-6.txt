@@ -1,0 +1,85 @@
+let x = List.rev [] in 3::x;;
+ val it : int list = [3]
+
+x 5;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The value or constructor 'x' is not defined. at 3,0
+
+x;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The value or constructor 'x' is not defined. at 3,0
+
+x [5];;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The value or constructor 'x' is not defined. at 3,0
+
+let revlists = (fun xs -> List.map List.rev xs);;
+ val revlists : xs:'a list list -> 'a list list
+
+revlists [[1;2];[3;4]]
+;;
+ val it : int list list = [[2; 1]; [4; 3]]
+
+ let rec insert n = function
+  | Lf            -> Br(n, Lf, Lf)
+  | Br(m, t1, t2) ->
+      if n < m then Br(m, insert n t1, t2)
+      ;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ The value or constructor 'Br' is not defined. Maybe you want one of the following:
+    SR
+    or at 5,21
+ The pattern discriminator 'Br' is not defined. at 7,4
+
+type 'a tree = 
+    |Lf
+    |Br of 'a * 'a tree * 'a tree
+
+;;
+ type 'a tree =
+   | Lf
+   | Br of 'a * 'a tree * 'a tree
+
+;;
+let rec insert n = function
+  | Lf -> Br(n, Lf, Lf)
+  | Br(m, t1, t2) ->
+    if n < m then Br(m, insert n t1, t2)
+;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This expression was expected to have type
+     'unit'    
+ but here has type
+     ''a tree'     at 9,4
+
+ let rec insert n = function
+  | Lf -> Br(n, Lf, Lf)
+  | Br(m, t1, t2) -> if n < m then Br(m, insert n t1, t2)
+;;
+ Stopped due to error
+ System.Exception: Operation could not be completed due to earlier error
+ This expression was expected to have type
+     'unit'    
+ but here has type
+     ''a tree'     at 7,21
+
+ let rec insert n = function
+  | Lf -> Br(n, Lf, Lf)
+  | Br(m, t1, t2) -> if n < m then Br(m, insert n t1, t2)
+                     else Br(m, t1, insert n t2);;
+ val insert : n:'a -> _arg1:'a tree -> 'a tree when 'a : comparison
+
+let rec buildtree = function
+  | [] -> Lf
+  | x::xs -> insert x (buildtree xs);;
+ val buildtree : _arg1:'a list -> 'a tree when 'a : comparison
+
+buildtree [1;2;3;4];;
+ val it : int tree = Br (4,Br (3,Br (2,Br (1,Lf,Lf),Lf),Lf),Lf)
+
+
