@@ -1,0 +1,7 @@
+2-27 Tried to figure out #1 was not sure how to go about starting it, not even sure what it was asking to accomplish
+
+3-5 Worked on trying to figure out #3 of problem set 2. For example the uncurry function, I had a lot of trouble with and this particular day I could not figure it out
+
+3-6 Worked on most of the problem set. Binary search tree, and mostly the first problem with the C code,  getting more familiar with the recursive functions. also slight practice using List.rev/List.map
+
+3-7 Worked on #3 again to figure out the uncurry function more practice on the binary search tree
